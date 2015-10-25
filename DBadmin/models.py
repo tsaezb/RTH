@@ -1,5 +1,25 @@
 from django.db import models
 
+class Enfermedad(models.Model):
+    nombre = models.CharField(max_length=50)
+    class Meta:
+        verbose_name_plural = "Enfermedades"
+    def __str__(self):
+        return self.nombre
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("nombre__iexact","nombre__icontains",)
+
+class Habito(models.Model):
+    nombre = models.CharField(max_length=50)
+    def __str__(self):
+        return self.nombre
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("nombre__iexact","nombre__icontains",)
+
 class Paciente(models.Model):
     nombre= models.CharField(max_length=200)
     rut= models.CharField(max_length=10)
@@ -23,27 +43,7 @@ class Paciente(models.Model):
                      ('ab-','AB Rh-'),)
     grupo_sang = models.CharField(max_length=3,choices=op_grupo_sang,null=True)
 
-    #antecedentes =
-
-
-class Enfermedad(models.Model):
-    nombre = models.CharField(max_length=50)
-    class Meta:
-        verbose_name_plural = "Enfermedades"
-    def __str__(self):
-        return self.nombre
-
-    @staticmethod
-    def autocomplete_search_fields():
-        return ("nombre__iexact","nombre__icontains",)
-
-class Antecedentes(models.Model):
+    #antecedentes
     enfermedades_previas= models.ManyToManyField(Enfermedad)
-
-
-    class Meta:
-        verbose_name_plural = "Antecedentes"
-
-
-
-# Create your models here.
+    antecedentes_quirurgicos = models.NullBooleanField()
+    habitos = models.ManyToManyField(Habito)
