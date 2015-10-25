@@ -58,6 +58,7 @@ class Evento(models.Model):
                                ('TX','Transplante'),
                                ('PostTX','PostTransplante'),
                               )
+    paciente= models.ForeignKey(Paciente)
     tipo= models.CharField(max_length=100,choices=tipo_de_evento_opciones)
     fecha= models.DateField('Fecha del Evento',default=timezone.now)
 
@@ -83,3 +84,6 @@ class Pretransplante(Evento):
     causa_enlistamiento= models.CharField(max_length=100)
     situacion= models.CharField(max_length=30,choices=situacion_opciones)
     antecedentes_previos=models.ManyToManyField(AntecedentePretransplante)
+    def save(self):
+        self.tipo= "PreTX"
+        super(Pretransplante, self).save()
