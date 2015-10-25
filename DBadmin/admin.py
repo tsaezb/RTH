@@ -10,6 +10,9 @@ class AntecedentePretransplanteAdmin(admin.ModelAdmin):
     raw_id_fields = ('nombre')
     autocomplete_lookup_fields = {'m2m': ['nombre'],}
 
-admin.site.register(Paciente)
+
+admin.site.register(Paciente
+admin.site.register(Enfermedad)
 admin.site.register(AntecedentePretransplante,AntecedentePretransplanteAdmin)
+
 # Register your models here.
