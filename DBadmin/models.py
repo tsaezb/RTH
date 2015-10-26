@@ -24,15 +24,49 @@ class Habito(models.Model):
         return ("nombre__iexact","nombre__icontains",)
 
 
+class Comuna(models.Model):
+    nombre = models.CharField(max_length=50)
+    region = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("nombre__iexact","nombre__icontains",)
+
+
+class Hospital(models.Model):
+    nombre = models.CharField(max_length=100)
+    servicio_salud = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name_plural = "Hospitales"
+
+    def __str__(self):
+        return self.nombre + ", " + self.servicio_salud
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("nombre__iexact","nombre__icontains",)
+
+
 class Paciente(models.Model):
+    #datos personales
     nombre= models.CharField(max_length=200)
     rut= models.CharField(max_length=10)
-    sexo= models.CharField(max_length=1)
+
+    op_sexo=    (('m','Masculino'),
+                 ('f','Femenino'))
+    sexo= models.CharField(max_length=1,choices=op_sexo,null=True)
     fecha_nac= models.DateField('Fecha de Nacimiento')
 
+    #direccion
     direccion = models.CharField(max_length=200,null=True)
-    #comuna = models.ForeignKey(Comuna)
-    #hospital = models.ForeignKey(Hospital)
+    comuna = models.ForeignKey(Comuna,null=True)
+
+    #datos salud
+    hospital = models.ForeignKey(Hospital,null=True)
     op_prevision =   (('fon', 'FONASA'),
                  ('isa', 'ISAPRE'),)
     prevision = models.CharField(max_length=10,choices=op_prevision,null=True)
