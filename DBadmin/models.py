@@ -83,7 +83,14 @@ class Pretransplante(Evento):
     diagnostico= models.CharField(max_length=100)
     causa_enlistamiento= models.CharField(max_length=100)
     situacion= models.CharField(max_length=30,choices=situacion_opciones)
-    antecedentes_previos=models.ManyToManyField(AntecedentePretransplante)
+    antecedentes_previos= models.ManyToManyField(AntecedentePretransplante)
+    fecha_enlistamiento= models.DateField()
+    peso= models.FloatField()
+    estatura= models.IntegerField()
+    score_child= models.FloatField()
+    factor_de_reajuste_childpugh= models.FloatField()
+    score_meld= models.FloatField()
     def save(self):
         self.tipo= "PreTX"
+        self.fecha= timezone.now
         super(Pretransplante, self).save()

@@ -4,9 +4,12 @@ from .models import *
 
 class PretransplanteAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['paciente','fecha','diagnostico','causa_enlistamiento','situacion','antecedentes_previos']}),
+        (None, {'fields': ['paciente','diagnostico',]}),
+        ('Antropometria',{'fields':['estatura','peso',]})
+        ('Datos Medicos',{'fields':['fecha_enlistamiento','diagnostico','causa_enlistamiento','situacion','antecedentes_previos',]}),
+        ('Scores',{'fields':['score_child','factor_de_reajuste_childpugh','score_meld',]})
         ]
-    list_display = ('paciente','tipo','fecha',)
+    list_display = ('paciente','tipo','fecha','score_child','factor_de_reajuste_childpugh','score_meld',)
     list_filter = ['paciente']
     search_fields = ['paciente']
     raw_id_fields = ('paciente','antecedentes_previos')
