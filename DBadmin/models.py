@@ -86,12 +86,16 @@ class Paciente(models.Model):
     antecedentes_quirurgicos = models.NullBooleanField()
     habitos = models.ManyToManyField(Habito)
 
+    def __str__(self):
+        return self.nombre + ", " + self.rut
+
 
 class Evento(models.Model):
     tipo_de_evento_opciones= (('PreTX','PreTransplante'),
                                ('TX','Transplante'),
                                ('PostTX','PostTransplante'),
                               )
+    paciente= models.ForeignKey(Paciente,null=True)
     tipo= models.CharField(max_length=100,choices=tipo_de_evento_opciones)
     fecha= models.DateField('Fecha del Evento',default=timezone.now)
 
@@ -116,4 +120,14 @@ class Pretransplante(Evento):
     diagnostico= models.CharField(max_length=100)
     causa_enlistamiento= models.CharField(max_length=100)
     situacion= models.CharField(max_length=30,choices=situacion_opciones)
-    antecedentes_previos=models.ManyToManyField(AntecedentePretransplante)
+    antecedentes_previos= models.ManyToManyField(AntecedentePretransplante)
+    fecha_enlistamiento= models.DateField(default=timezone.now)
+    peso= models.FloatField(default=0)
+    estatura= models.IntegerField(default=0)
+    score_child= models.FloatField(default=0)
+    factor_de_reajuste_childpugh= models.FloatField(default=0)
+    score_meld= models.FloatField(default=0)
+    
+    def save(self):
+        self.tipo= "PreTX"
+        super(Pretransplante, self).save()
