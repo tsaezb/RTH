@@ -93,7 +93,7 @@ class Paciente(models.Model):
 class Evento(models.Model):
     tipo_de_evento_opciones= (('PreTX','PreTransplante'),
                                ('TX','Transplante'),
-                               ('PostTX','PostTransplante'),
+                               ('PostTX','PostOperatorio'),
                               )
     paciente= models.ForeignKey(Paciente,null=True)
     tipo= models.CharField(max_length=100,choices=tipo_de_evento_opciones)
@@ -127,7 +127,24 @@ class Pretransplante(Evento):
     score_child= models.FloatField(default=0)
     factor_de_reajuste_childpugh= models.FloatField(default=0)
     score_meld= models.FloatField(default=0)
-    
+
     def save(self):
         self.tipo= "PreTX"
         super(Pretransplante, self).save()
+
+
+class Postoperatorio(Evento):
+    #Hospitalizacion
+    dias_totales = models.IntegerField(default=0)
+    dias_uci = models.IntegerField(default=0)
+    horas_ventilacion_mecanica = models.IntegerField(default=0)
+    dias_soporte_renal = models.IntegerField(default=0)
+
+    #Explante
+    hcc = models.NullBooleanField()
+    peso = models.FloatField(default=0)
+    datos_interes = models.TextField(max_length=500,default="")
+
+    def save(self):
+        self.tipo = "PostTX"
+        super(Postoperatorio, self).save()

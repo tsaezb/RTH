@@ -27,11 +27,25 @@ class PacienteAdmin(admin.ModelAdmin):
     raw_id_fields = ('comuna','enfermedades_previas','hospital','habitos')
     autocomplete_lookup_fields = {'fk': ['comuna','hospital'], 'm2m': ['enfermedades_previas','habitos'],}
 
+class PostoperatorioAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,                  {'fields': ['paciente',]}),
+        ('Hospitalización',     {'fields': ['dias_totales','dias_uci','horas_ventilacion_mecanica','dias_soporte_renal',]}),
+        ('Explante',            {'fields': ['hcc','peso','datos_interes',]})
+        ]
+    list_display = ('paciente','tipo','fecha','dias_totales','dias_uci',)
+    list_filter = ['paciente']
+    search_fields = ['paciente']
+    raw_id_fields = ('paciente',)
+    autocomplete_lookup_fields = {'fk': ['paciente'],}
+
+
 
 admin.site.register(Paciente, PacienteAdmin)
 admin.site.register(Enfermedad)
 admin.site.register(Habito)
 admin.site.register(Comuna)
 admin.site.register(Hospital)
+admin.site.register(Postoperatorio,PostoperatorioAdmin)
 admin.site.register(Pretransplante,PretransplanteAdmin)
 admin.site.register(AntecedentePretransplante)
