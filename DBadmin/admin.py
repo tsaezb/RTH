@@ -23,6 +23,7 @@ class PacienteAdmin(admin.ModelAdmin):
         ('Datos Salud',             {'fields': ['grupo_sang', 'prevision', 'hospital']}),
         ('Antecedentes Salud',      {'fields': ['enfermedades_previas', 'antecedentes_quirurgicos', 'habitos']}),
     ]
+    list_display = ('nombre','rut','sexo','fecha_nac',)
     raw_id_fields = ('comuna','enfermedades_previas','hospital','habitos')
     autocomplete_lookup_fields = {'fk': ['comuna','hospital'], 'm2m': ['enfermedades_previas','habitos'],}
 
