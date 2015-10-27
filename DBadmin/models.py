@@ -94,6 +94,7 @@ class Evento(models.Model):
     tipo_de_evento_opciones= (('PreTX','PreTransplante'),
                                ('TX','Transplante'),
                                ('PostTX','PostOperatorio'),
+                               ('Compl','Complicacion'),
                               )
     paciente= models.ForeignKey(Paciente,null=True)
     tipo= models.CharField(max_length=100,choices=tipo_de_evento_opciones)
@@ -112,11 +113,10 @@ class AntecedentePretransplante(models.Model):
 
 
 class Pretransplante(Evento):
-    situacion_opciones= (('Electivo','Electivo'),
-                               ('Urgencia1','Urgencia Tipo1'),
-                               ('Urgencia2','Urgencia Tipo2'),
-                               ('Urgencia3','Urgencia Tipo3'),
-                              )
+    situacion_opciones =    (('Electivo','Electivo'),
+                             ('Urgencia1','Urgencia Tipo1'),
+                             ('Urgencia2','Urgencia Tipo2'),
+                             ('Urgencia3','Urgencia Tipo3'),)
     diagnostico= models.CharField(max_length=100)
     causa_enlistamiento= models.CharField(max_length=100)
     situacion= models.CharField(max_length=30,choices=situacion_opciones)
@@ -147,4 +147,24 @@ class Postoperatorio(Evento):
 
     def save(self):
         self.tipo = "PostTX"
+        super(Postoperatorio, self).save()
+
+
+class Complicacion(Evento):
+
+    op_tipo_complicacion = (('rech','Rechazo'),
+                            ('vasc','Vascular'),
+                            ('bili','Biliar'),
+                            ('infe','Infeccion'),
+                            ('neur','Neurologica'),
+                            ('neop','Neoplasica'),
+                            ('card','Cardiovascular'),
+                            ('enfb','Reaparicion enfermedad base'),)
+    tipo_complicacion = models.CharField(max_length=4,choices=op_tipo_complicacion)
+    fecha_complicacion = models.DateField(default=timezone.now)
+    tratamiento = models.TextField(max_length=500,default="")
+    detalles = models.TextField(max_length=500,default="")
+
+    def save(self):
+        self.tipo = "Compl"
         super(Postoperatorio, self).save()
