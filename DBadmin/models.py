@@ -2,6 +2,18 @@ from django.db import models
 from django.utils import timezone
 
 
+class Comuna(models.Model):
+    nombre = models.CharField(max_length=50)
+    region = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("nombre__iexact","nombre__icontains",)
+
+
 class Enfermedad(models.Model):
     nombre = models.CharField(max_length=50)
     class Meta:
@@ -16,18 +28,6 @@ class Enfermedad(models.Model):
 
 class Habito(models.Model):
     nombre = models.CharField(max_length=50)
-    def __str__(self):
-        return self.nombre
-
-    @staticmethod
-    def autocomplete_search_fields():
-        return ("nombre__iexact","nombre__icontains",)
-
-
-class Comuna(models.Model):
-    nombre = models.CharField(max_length=50)
-    region = models.CharField(max_length=50)
-
     def __str__(self):
         return self.nombre
 
