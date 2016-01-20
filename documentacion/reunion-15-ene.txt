@@ -1,0 +1,86 @@
+Prestrasplante - Diagnostico -> Multiples tumores (Campo Multiple)
+
+Pretrasplate - Caracterizacion del paciente - 
+
+Trasplante - Situacion - Casa, Hospitalizado, UCI / Soporte Vital (Ventilacion/Dialisis // Momento/Tiempo)
+hora salids del frio
+inicio de saghkdf
+termino safds
+inicio de porta
+término de porta
+hora de reperfision (anterograda/retrograda/simultanea)
+inicio de artiria
+termino de arteria
+reperfusion arterial
+inicio de via biliar
+rtermino de via biliar
+termino de intervención
+Técincas de transplante
+	- Donante Vivo/Cadaverico
+	- Con/Sin recepcion de vena cava
+	- Con/Sin Bypass Venovenoso
+	- Classica/piggyback a las venas suprahepaticas/piggyback cavo-cava
+Tipos de union cava;
+
+Anstomosis
+	- Termino-Terminal con reemplazo
+	- Laterolateral
+	- Termino-Lateral
+Anastomosis Porta
+	- Termino-Terminal
+	- Con injerto
+Anastomosis Arterial
+	- Termino-Terminal:
+		* Arteria Hepatica Propia
+		* Arterial Hepatica Gastro-Venal
+		* tronco Celiaco
+		* Directa a la aorta
+		* con Injerto
+Anastomosis Biiiar:
+	- Termino-Terminal
+	- Con Y De Rouse
+	- Con/Sin Tutor
+Tipo Inscición:
+	- Mercedes
+	- J
+	- Falta una!
+
+
+
+Donante -> Obesidad ??? (hacerlo respecto al IMC o campo de texto)
+Raza (o Nacionalidad)
+
+Donante:
+
+Tecnica:
+	- Tipo solucion
+	- Tipo Perfusion
+	- Tipo Tecnica (Diseccion Pedicular/ En Bloque)
+	- Detalle de Cirugía de Procura (Sólo Higado/ Tambien otras partes detalladas / Hubo daño (Lesion arterial/venosa/desgarro))
+
+Donante vivo:
+	- Swgmentos laterales
+
+Receptor pediatrico
+Receptor adulto
+
+hubo lesion -> hubo reconstruccion
+hubo lesión -> inutilizable
+
+es de region -> se utilizó avion, ambulancia, etc -> kilometros
+
+hora insicion
+hora clampeo
+hora extración
+hora termino
+
+
+Complicaciones post-operatorias
+	- Reoperacion Yes/No
+
+Complicaciones Vasculares:
+	- 
+	- Formas de tratarlo:
+		* asdsad
+		* asdasd
+Hemoperitoneo
