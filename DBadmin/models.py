@@ -2,6 +2,18 @@ from django.db import models
 from django.utils import timezone
 
 
+class Comuna(models.Model):
+    nombre = models.CharField(max_length=50)
+    region = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("nombre__iexact","nombre__icontains",)
+
+
 class Enfermedad(models.Model):
     nombre = models.CharField(max_length=50)
     class Meta:
@@ -16,18 +28,6 @@ class Enfermedad(models.Model):
 
 class Habito(models.Model):
     nombre = models.CharField(max_length=50)
-    def __str__(self):
-        return self.nombre
-
-    @staticmethod
-    def autocomplete_search_fields():
-        return ("nombre__iexact","nombre__icontains",)
-
-
-class Comuna(models.Model):
-    nombre = models.CharField(max_length=50)
-    region = models.CharField(max_length=50)
-
     def __str__(self):
         return self.nombre
 
@@ -93,7 +93,8 @@ class Paciente(models.Model):
 class Evento(models.Model):
     tipo_de_evento_opciones= (('PreTX','PreTransplante'),
                                ('TX','Transplante'),
-                               ('PostTX','PostTransplante'),
+                               ('PostTX','PostOperatorio'),
+                               ('Compl','Complicacion'),
                               )
     paciente= models.ForeignKey(Paciente,null=True)
     tipo= models.CharField(max_length=100,choices=tipo_de_evento_opciones)
@@ -112,11 +113,10 @@ class AntecedentePretransplante(models.Model):
 
 
 class Pretransplante(Evento):
-    situacion_opciones= (('Electivo','Electivo'),
-                               ('Urgencia1','Urgencia Tipo1'),
-                               ('Urgencia2','Urgencia Tipo2'),
-                               ('Urgencia3','Urgencia Tipo3'),
-                              )
+    situacion_opciones =    (('Electivo','Electivo'),
+                             ('Urgencia1','Urgencia Tipo1'),
+                             ('Urgencia2','Urgencia Tipo2'),
+                             ('Urgencia3','Urgencia Tipo3'),)
     diagnostico= models.CharField(max_length=100)
     causa_enlistamiento= models.CharField(max_length=100)
     situacion= models.CharField(max_length=30,choices=situacion_opciones)
@@ -127,7 +127,44 @@ class Pretransplante(Evento):
     score_child= models.FloatField(default=0)
     factor_de_reajuste_childpugh= models.FloatField(default=0)
     score_meld= models.FloatField(default=0)
-    
+
     def save(self):
         self.tipo= "PreTX"
         super(Pretransplante, self).save()
+
+
+class Postoperatorio(Evento):
+    #Hospitalizacion
+    dias_totales = models.IntegerField(default=0)
+    dias_uci = models.IntegerField(default=0)
+    horas_ventilacion_mecanica = models.IntegerField(default=0)
+    dias_soporte_renal = models.IntegerField(default=0)
+
+    #Explante
+    hcc = models.NullBooleanField()
+    peso = models.FloatField(default=0)
+    datos_interes = models.TextField(max_length=500,default="")
+
+    def save(self):
+        self.tipo = "PostTX"
+        super(Postoperatorio, self).save()
+
+
+class Complicacion(Evento):
+
+    op_tipo_complicacion = (('rech','Rechazo'),
+                            ('vasc','Vascular'),
+                            ('bili','Biliar'),
+                            ('infe','Infeccion'),
+                            ('neur','Neurologica'),
+                            ('neop','Neoplasica'),
+                            ('card','Cardiovascular'),
+                            ('enfb','Reaparicion enfermedad base'),)
+    tipo_complicacion = models.CharField(max_length=4,choices=op_tipo_complicacion)
+    fecha_complicacion = models.DateField(default=timezone.now)
+    tratamiento = models.TextField(max_length=500,default="")
+    detalles = models.TextField(max_length=500,default="")
+
+    def save(self):
+        self.tipo = "Compl"
+        super(Postoperatorio, self).save()
