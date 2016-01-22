@@ -1,0 +1,18 @@
+{% load static %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block head_title %}{% endblock %} | RTH</title>
+    <!-- Additional CSS -->
+    {% block additional-css %}{% endblock %}
+  </head>
+  <body>
+    <h1>Hola {{user.username}}. Esto es la base</h1>
+    {% block content %}{% endblock %}
+    <!-- Additional JS -->
+    {% block additional-js %}{% endblock %}
+
+  </body>
+</html>
