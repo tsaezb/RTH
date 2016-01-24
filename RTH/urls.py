@@ -13,10 +13,21 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
-]
+    url(r'^$', include('DBadmin.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+#Sistema de Login
+
+urlpatterns += patterns('django.contrib.auth.views',
+    url(r'^login/$', 'login', {'template_name': 'login.html'},
+        name='rth_login'),
+    url(r'^logout/$', 'logout', {'next_page': '/'}, name='rth_logout'),
+)
