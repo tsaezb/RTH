@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import *
 
-class PretransplanteAdmin(admin.ModelAdmin):
+class PretrasplanteAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,              {'fields': ['paciente',]}),
         ('Antropometria',   {'fields': ['estatura','peso',]}),
@@ -53,12 +53,14 @@ class ComplicacionAdmin(admin.ModelAdmin):
     raw_id_fields = ('paciente',)
     autocomplete_search_fields = {'fk': ['paciente'],}
 
+
+
 admin.site.register(Paciente, PacienteAdmin)
 admin.site.register(Enfermedad)
 admin.site.register(Habito)
 admin.site.register(Comuna)
 admin.site.register(Hospital)
-admin.site.register(Pretransplante, PretransplanteAdmin)
-admin.site.register(AntecedentePretransplante)
+admin.site.register(Pretrasplante, PretrasplanteAdmin)
+admin.site.register(AntecedentePretrasplante)
 admin.site.register(Postoperatorio, PostoperatorioAdmin)
 admin.site.register(Complicacion, ComplicacionAdmin)
