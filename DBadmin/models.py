@@ -151,23 +151,23 @@ class Trasplante(Evento):
 
     #tratamiento organo
     solucion_opciones = (('solucion1','Solucion 1'),
-                        ('solucion2','Solucion 2')
+                        ('solucion2','Solucion 2'),
                         ('solucion3','Solucion 3'),)
     tipo_solucion = models.CharField(max_length=30,choices=solucion_opciones)
     distribucion_opciones = (('via1','Via 1'),
-                            ('via2','Via 2')
+                            ('via2','Via 2'),
                             ('via3','Via 3'),)
     distribucion_solucion = models.CharField(max_length=30,choices=solucion_opciones)
 
-    porcentaje_esteatosis + models.FloatField(default=0)
+    porcentaje_esteatosis = models.FloatField(default=0)
 
     #operacion
     tiempo_total = models.IntegerField(default=0)
     izquemia_fria = models.IntegerField(default=0)
     izquemia_caliente = models.IntegerField(default=0)
 
-    distribucion_opciones = (('tecnica1','Tecnica 1'),
-                            ('tecnica2','Tecnica 2')
+    tecnica_opciones = (('tecnica1','Tecnica 1'),
+                            ('tecnica2','Tecnica 2'),
                             ('tecnica3','Tecnica 3'),)
     tecnica = models.CharField(max_length=30,choices=tecnica_opciones)
     #transfusiones
@@ -270,7 +270,7 @@ class Donante(Evento):
 
     #datos organo
     injerto_opciones = (('injerto1','Injerto 1'),
-                        ('injerto2','Injerto 2')
+                        ('injerto2','Injerto 2'),
                         ('injerto3','Injerto 3'),)
     tipo_injerto = models.CharField(max_length=3,choices=injerto_opciones)
 
