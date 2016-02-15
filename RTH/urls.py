@@ -22,7 +22,20 @@ urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('DBadmin.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT
+) + static('/bower_components/', document_root='static/bower_components/'
+) + static('/css/', document_root='static/css/'
+) + static('/data/', document_root='static/data/'
+) + static('/fonts/', document_root='static/fonts/'
+) + static('/img/', document_root='static/img/'
+) + static('/js/', document_root='static/js/'
+) + static('/less/', document_root='static/less/'
+) + static('/media/', document_root='static/media/'
+) + static('/template/', document_root='static/template/'
+) + static('/vendors/', document_root='static/vendors/'
+) + static('/views/', document_root='static/views/'
+)
+
 
 #Sistema de Login
 
