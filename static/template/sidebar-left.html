@@ -1,15 +1,17 @@
-<div class="sidebar-inner c-overflow">    
+<div class="sidebar-inner c-overflow">
     <div class="profile-menu">
         <a href="" toggle-submenu>
+          <div data-ng-controller="usernameCtrl as uctrl">
             <div class="profile-pic">
-                <img src="img/profile-pics/1.jpg" alt="">
+                <img src="img/profile-pics/4.jpg" alt="">
             </div>
 
             <div class="profile-info">
-                Benjamon Hollaway
+                {{ user.firstname }} {{ user.lastname }}
 
                 <i class="zmdi zmdi-caret-down"></i>
             </div>
+          </div>
         </a>
 
         <ul class="main-menu">
@@ -29,7 +31,7 @@
     </div>
 
     <ul class="main-menu">
-        
+
         <li data-ui-sref-active="active">
             <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
         </li>
@@ -53,7 +55,7 @@
                 <li><a data-ui-sref-active="active" data-ui-sref="widgets.widgets" data-ng-click="mactrl.sidebarStat($event)">Widgets</a></li>
             </ul>
         </li>
-        
+
         <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('tables') }">
             <a href="" toggle-submenu><i class="zmdi zmdi-view-list"></i> Tables</a>
 
@@ -62,7 +64,7 @@
                 <li><a data-ui-sref-active="active" data-ui-sref="tables.data-table" data-ng-click="mactrl.sidebarStat($event)">Data Tables</a></li>
             </ul>
         </li>
-        
+
         <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('form') }">
             <a href="" toggle-submenu><i class="zmdi zmdi-collection-text"></i> Forms</a>
 
@@ -101,7 +103,7 @@
         <li data-ui-sref-active="active">
             <a data-ui-sref="calendar" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-calendar"></i> Calendar</a>
         </li>
-        
+
         <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('photo-gallery') }">
             <a href="" toggle-submenu><i class="zmdi zmdi-image"></i>Photo Gallery</a>
             <ul>
@@ -110,7 +112,7 @@
             </ul>
         </li>
 
-        
+
         <li data-ui-sref-active="active">
             <a data-ui-sref="generic-classes" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-layers"></i> Generic Classes</a>
         </li>

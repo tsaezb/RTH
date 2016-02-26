@@ -21,11 +21,12 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include('DBadmin.urls')),
+    url(r'^data/', include('DBadmin.urls')), # serves DB interactions
+    url(r'^$', include('server.urls')), # serves main page
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT
 ) + static('/bower_components/', document_root='static/bower_components/'
 ) + static('/css/', document_root='static/css/'
-) + static('/data/', document_root='static/data/'
+#) + static('/data/', document_root='static/data/'
 ) + static('/fonts/', document_root='static/fonts/'
 ) + static('/img/', document_root='static/img/'
 ) + static('/js/', document_root='static/js/'
