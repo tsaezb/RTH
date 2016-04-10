@@ -13,6 +13,12 @@ class Comuna(models.Model):
     def autocomplete_search_fields():
         return ("nombre__iexact","nombre__icontains",)
 
+    def as_json(self):
+        return dict(
+            id = self.id,
+            comuna = self.nombre
+        )
+
 
 class Enfermedad(models.Model):
     nombre = models.CharField(max_length=50)

@@ -4,7 +4,7 @@ materialAdmin
 
 
         $stateProvider
-        
+
             //------------------------------
             // HOME
             //------------------------------
@@ -64,7 +64,7 @@ materialAdmin
             //------------------------------
             // TYPOGRAPHY
             //------------------------------
-        
+
             .state ('typography', {
                 url: '/typography',
                 templateUrl: 'views/typography.html'
@@ -74,7 +74,7 @@ materialAdmin
             //------------------------------
             // WIDGETS
             //------------------------------
-        
+
             .state ('widgets', {
                 url: '/widgets',
                 templateUrl: 'views/common.html'
@@ -114,23 +114,23 @@ materialAdmin
             //------------------------------
             // TABLES
             //------------------------------
-        
+
             .state ('tables', {
                 url: '/tables',
                 templateUrl: 'views/common.html'
             })
-            
+
             .state ('tables.tables', {
                 url: '/tables',
                 templateUrl: 'views/tables.html'
             })
-            
+
             .state ('tables.data-table', {
                 url: '/data-table',
                 templateUrl: 'views/data-table.html'
             })
 
-        
+
             //------------------------------
             // FORMS
             //------------------------------
@@ -142,6 +142,23 @@ materialAdmin
             .state ('form.basic-form-elements', {
                 url: '/basic-form-elements',
                 templateUrl: 'views/form-elements.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
+            .state ('form.paciente', {
+                url: '/form-paciente',
+                templateUrl: 'views/form-paciente.html',
                 resolve: {
                     loadPlugin: function($ocLazyLoad) {
                         return $ocLazyLoad.load ([
@@ -191,27 +208,27 @@ materialAdmin
                     }
                 }
             })
-        
+
             .state ('form.form-examples', {
                 url: '/form-examples',
                 templateUrl: 'views/form-examples.html'
             })
-        
+
             .state ('form.form-validations', {
                 url: '/form-validations',
                 templateUrl: 'views/form-validations.html'
             })
-        
-            
+
+
             //------------------------------
             // USER INTERFACE
             //------------------------------
-        
+
             .state ('user-interface', {
                 url: '/user-interface',
                 templateUrl: 'views/common.html'
             })
-        
+
             .state ('user-interface.ui-bootstrap', {
                 url: '/ui-bootstrap',
                 templateUrl: 'views/ui-bootstrap.html'
@@ -226,22 +243,22 @@ materialAdmin
                 url: '/animations',
                 templateUrl: 'views/animations.html'
             })
-        
+
             .state ('user-interface.box-shadow', {
                 url: '/box-shadow',
                 templateUrl: 'views/box-shadow.html'
             })
-        
+
             .state ('user-interface.buttons', {
                 url: '/buttons',
                 templateUrl: 'views/buttons.html'
             })
-        
+
             .state ('user-interface.icons', {
                 url: '/icons',
                 templateUrl: 'views/icons.html'
             })
-        
+
             .state ('user-interface.alerts', {
                 url: '/alerts',
                 templateUrl: 'views/alerts.html'
@@ -256,7 +273,7 @@ materialAdmin
                 url: '/notifications-dialogs',
                 templateUrl: 'views/notification-dialog.html'
             })
-        
+
             .state ('user-interface.media', {
                 url: '/media',
                 templateUrl: 'views/media.html',
@@ -282,17 +299,17 @@ materialAdmin
                     }
                 }
             })
-        
+
             .state ('user-interface.other-components', {
                 url: '/other-components',
                 templateUrl: 'views/other-components.html'
             })
-            
-        
+
+
             //------------------------------
             // CHARTS
             //------------------------------
-            
+
             .state ('charts', {
                 url: '/charts',
                 templateUrl: 'views/common.html'
@@ -320,12 +337,12 @@ materialAdmin
                     }
                 }
             })
-        
-        
+
+
             //------------------------------
             // CALENDAR
             //------------------------------
-            
+
             .state ('calendar', {
                 url: '/calendar',
                 templateUrl: 'views/calendar.html',
@@ -350,12 +367,12 @@ materialAdmin
                     }
                 }
             })
-        
-        
+
+
             //------------------------------
             // PHOTO GALLERY
             //------------------------------
-            
+
              .state ('photo-gallery', {
                 url: '/photo-gallery',
                 templateUrl: 'views/common.html',
@@ -381,52 +398,52 @@ materialAdmin
             })
 
             //Default
-        
+
             .state ('photo-gallery.photos', {
                 url: '/photos',
                 templateUrl: 'views/photos.html'
             })
-        
+
             //Timeline
-    
+
             .state ('photo-gallery.timeline', {
                 url: '/timeline',
                 templateUrl: 'views/photo-timeline.html'
             })
-        
-        
+
+
             //------------------------------
             // GENERIC CLASSES
             //------------------------------
-            
+
             .state ('generic-classes', {
                 url: '/generic-classes',
                 templateUrl: 'views/generic-classes.html'
             })
-        
-            
+
+
             //------------------------------
             // PAGES
             //------------------------------
-            
+
             .state ('pages', {
                 url: '/pages',
                 templateUrl: 'views/common.html'
             })
-            
-        
+
+
             //Profile
-        
+
             .state ('pages.profile', {
                 url: '/profile',
                 templateUrl: 'views/profile.html'
             })
-        
+
             .state ('pages.profile.profile-about', {
                 url: '/profile-about',
                 templateUrl: 'views/profile-about.html'
             })
-        
+
             .state ('pages.profile.profile-timeline', {
                 url: '/profile-timeline',
                 templateUrl: 'views/profile-timeline.html',
@@ -474,40 +491,40 @@ materialAdmin
                     }
                 }
             })
-        
+
             .state ('pages.profile.profile-connections', {
                 url: '/profile-connections',
                 templateUrl: 'views/profile-connections.html'
             })
-        
-        
+
+
             //-------------------------------
-        
+
             .state ('pages.listview', {
                 url: '/listview',
                 templateUrl: 'views/list-view.html'
             })
-        
+
             .state ('pages.messages', {
                 url: '/messages',
                 templateUrl: 'views/messages.html'
             })
-        
+
             .state ('pages.pricing-table', {
                 url: '/pricing-table',
                 templateUrl: 'views/pricing-table.html'
             })
-        
+
             .state ('pages.contacts', {
                 url: '/contacts',
                 templateUrl: 'views/contacts.html'
             })
-        
+
             .state ('pages.invoice', {
                 url: '/invoice',
                 templateUrl: 'views/invoice.html'
             })
-                                
+
             .state ('pages.wall', {
                 url: '/wall',
                 templateUrl: 'views/wall.html',
@@ -533,7 +550,7 @@ materialAdmin
                     }
                 }
             })
-            
+
             //------------------------------
             // BREADCRUMB DEMO
             //------------------------------

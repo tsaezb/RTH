@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from .models import Comuna
 
 # Create your views here.
 
@@ -14,6 +15,14 @@ def userdata(request):
         "lastname": request.user.last_name
     }
     return JsonResponse(to_json)
+
+@login_required
+def comunas(request):
+    resultset = Comuna.objects.all()
+    results = [ob.as_json() for ob in resultset]
+    return JsonResponse(results, safe=False)
+    #return HttpResponse(json.dumps(results), content_type="application/json")
+
 
 
 #    return HttpResponse(element)
