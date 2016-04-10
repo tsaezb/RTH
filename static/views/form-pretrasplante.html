@@ -1,0 +1,117 @@
+<form>
+  <div class="card">
+    <div class="card-header">
+      <h2>Pretrasplante</h2>
+    </div>
+
+    <div class="card-body card-padding">
+
+      <div class="form-group fg-line">
+        <label>Diagnostico</label>
+        <input type="text" class="form-control" placeholder="Diagnostico">
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Causa de Enlistamiento</label>
+        <input type="text" class="form-control" placeholder="Causa">
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Fecha de Enlistamiento</label>
+            <div class="date-picker input-group" ng-class="{ 'is-opened': opened == true }">
+                <span class="input-group-addon"><i class="zmdi zmdi-calendar ma-icon"></i></span>
+                <div class="fg-line" ng-class="{ 'fg-toggled': opened == true }">
+                    <input ng-click="open($event, 'opened')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="dtPopup" is-open="opened" min-date="minDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Select Date" />
+                </div>
+            </div>
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Situación</label>
+        <input type="text" class="form-control" placeholder="">
+      </div>
+
+      <div class="form-group fg-line">
+          <label>Antecedentes</label>
+          <select  chosen multiple data-placeholder="Select a country..." class="w-100">
+              <option value="United States">Antecedente 1</option>
+          </select>
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Comuna</label>
+          <div class="select">
+            <select class="form-control">
+              <option>Select an Option</option>
+            </select>
+        </div>
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Hospital</label>
+          <div class="select">
+            <select class="form-control">
+              <option>Select an Option</option>
+            </select>
+        </div>
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Prevision</label>
+          <div class="select">
+            <select class="form-control">
+              <option>Select an Option</option>
+            </select>
+        </div>
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Grupo Sanguineo</label>
+          <div class="select">
+            <select class="form-control">
+              <option>Select an Option</option>
+            </select>
+        </div>
+      </div>
+
+      <div class="form-group fg-line">
+          <label>Enfermedades</label>
+          <select  chosen multiple data-placeholder="Select a country..." class="w-100">
+              <option value="United States">United States</option>
+          </select>
+      </div>
+
+      <div class="form-group fg-line">
+        <label>Antecedentes Quirurjicos</label>
+
+        <br/><br/>
+
+        <label class="radio radio-inline m-r-20">
+          <input type="radio" name="inlineRadioOptions" value="True">
+          <i class="input-helper"></i>
+          Si
+        </label>
+
+        <label class="radio radio-inline m-r-20">
+          <input type="radio" name="inlineRadioOptions" value="False">
+          <i class="input-helper"></i>
+          No
+        </label>
+      </div>
+
+      <div class="form-group fg-line">
+          <label>Habitos</label>
+          <select  chosen multiple data-placeholder="Select a country..." class="w-100">
+              <option value="United States">United States</option>
+          </select>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+
+</form>

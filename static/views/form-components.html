@@ -510,11 +510,11 @@
         <div class="card-body card-padding" data-ng-controller="formCtrl as fctrl">
             <p class="f-500 c-black m-b-5">Basic Example</p>
             <small class="c-gray">Current value: {{ fctrl.nouisliderValue }}</small>
-            
+
             <br/>
             <br/>
-            
-            <div slider class="input-slider" ng-model="fctrl.nouisliderValue" start=1 end=10></div> 
+
+            <div slider class="input-slider" ng-model="fctrl.nouisliderValue" start=1 end=10></div>
 
             <br/>
             <br/>
@@ -522,10 +522,10 @@
             <p class="f-500 c-black m-b-5">Range Slider</p>
             <small class="c-gray">Current value: {{ fctrl.nouisliderFrom }} - {{ fctrl.nouisliderTo }}</small>
 
-            
+
             <br/>
             <br/>
-            
+
             <div slider class="input-slider-range" ng-from="fctrl.nouisliderFrom" ng-to="fctrl.nouisliderTo" start=0 end=100></div>
 
             <br/>
@@ -634,6 +634,19 @@
                     </div>
 
                 </div>
+              </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+
+                    <div class="date-picker input-group" ng-class="{ 'is-opened': opened == true }">
+                        <span class="input-group-addon"><i class="zmdi zmdi-calendar ma-icon"></i></span>
+                        <div class="fg-line" ng-class="{ 'fg-toggled': opened == true }">
+                            <input ng-click="open($event, 'opened')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="dtPopup" is-open="opened" min-date="minDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Select Date" />
+                        </div>
+                    </div>
+
+                </div>
 
                 <div class="col-sm-4">
 
@@ -680,7 +693,7 @@
 
                 </div>
 
-               
+
             </div>
         </div>
     </div>
@@ -693,9 +706,9 @@
         <div class="card-body card-padding" data-ng-controller="formCtrl as fctrl">
             <div class="row">
                 <div class="col-sm-6">
-                    
-                    
-                    
+
+
+
                     <div class="cp-container">
                         <div class="input-group form-group">
                             <span class="input-group-addon"><i class="zmdi zmdi-invert-colors"></i></span>
@@ -768,7 +781,7 @@
         </div>
     </div>
 
-    
+
     <div class="card">
         <div class="card-header">
             <h2>Simple File Input <small>The file input plugin allows you to create a visually appealing file or image input widgets</small></h2>
