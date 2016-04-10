@@ -1,5 +1,62 @@
 <div class="container">
 
+  <script>
+  $(document).ready(function(){
+    $.getJSON( "data/comunas.json", function( data ) {
+      var listitems = "";
+      $.each( data, function( key, val ) {
+        listitems += '<option value=' + key + '>' + val.comuna + '</option>';
+      });
+      $("#selectcomuna").append(listitems);
+    });
+
+    $.getJSON( "data/hospitales.json", function( data ) {
+      var listitems = "";
+      $.each( data, function( key, val ) {
+        listitems += '<option value=' + key + '>' + val.hospital + '</option>';
+      });
+      $("#selecthospital").append(listitems);
+    });
+  });
+  </script>
+
+  <div class="block-header">
+      <h2>Formulario</h2>
+
+      <ul class="actions">
+        <li class="dropdown" uib-dropdown>
+            <a href="" uib-dropdown-toggle>
+                <i class="zmdi zmdi-more-vert"></i>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                    <a data-ui-sref="form.pretrasplante">Pretrasplante</a>
+                </li>
+                <li>
+                    <a data-ui-sref="form.trasplante">Trasplante</a>
+                </li>
+                <li>
+                    <a data-ui-sref="form.donante">Donante</a>
+                </li>
+                <li>
+                    <a data-ui-sref="form.postoperatorio">Postoperatorio</a>
+                </li>
+                <li>
+                    <a data-ui-sref="form.complicacion">Complicación</a>
+                </li>
+                <li>
+                    <a data-ui-sref="form.rehospitalizacion">Rehospitalización</a>
+                </li>
+                <li>
+                    <a data-ui-sref="form.laboratorio">Laboratorio</a>
+                </li>
+            </ul>
+        </li>
+      </ul>
+
+  </div>
+
   <div class="card">
     <div class="card-header">
       <h2>Paciente</h2>
@@ -50,19 +107,6 @@
         <input type="text" class="form-control" placeholder="Dirección">
       </div>
 
-      <script>
-      $(document).ready(function(){
-        $.getJSON( "data/comunas.json", function( data ) {
-          var listitems = "";
-          $.each( data, function( key, val ) {
-            console.log(val);
-            listitems += '<option value=' + key + '>' + val.comuna + '</option>';
-          });
-          $("#selectcomuna").append(listitems);
-        });
-      });
-      </script>
-
       <div class="form-group fg-line">
         <label>Comuna</label>
           <div class="select">
@@ -75,7 +119,7 @@
       <div class="form-group fg-line">
         <label>Hospital</label>
           <div class="select">
-            <select chosen class="form-control">
+            <select chosen class="form-control" id="selecthospital">
               <option>Select an Option</option>
             </select>
         </div>
@@ -101,7 +145,7 @@
 
       <div class="form-group fg-line">
           <label>Enfermedades</label>
-          <select  chosen multiple data-placeholder="Select a country..." class="w-100">
+          <select chosen multiple data-placeholder="Select a country..." class="w-100">
               <option value="United States">United States</option>
           </select>
       </div>

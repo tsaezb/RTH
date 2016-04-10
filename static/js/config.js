@@ -173,6 +173,125 @@ materialAdmin
                 }
             })
 
+            .state ('form.pretrasplante', {
+                url: '/form-pretrasplante',
+                templateUrl: 'views/form-pretrasplante.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
+            .state ('form.trasplante', {
+                url: '/form-trasplante',
+                templateUrl: 'views/form-trasplante.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
+            .state ('form.donante', {
+                url: '/form-donante',
+                templateUrl: 'views/form-donante.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
+            .state ('form.postoperatorio', {
+                url: '/form-postoperatorio',
+                templateUrl: 'views/form-postoperatorio.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
+            .state ('form.complicacion', {
+                url: '/form-complicacion',
+                templateUrl: 'views/form-complicacion.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
+            .state ('form.rehospitalizacion', {
+                url: '/form.rehospitalizacion',
+                templateUrl: 'views/form-rehospitalizacion.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
+            .state ('form.laboratorio', {
+                url: '/form-laboratorio',
+                templateUrl: 'views/form-laboratorio.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
             .state ('form.form-components', {
                 url: '/form-components',
                 templateUrl: 'views/form-components.html',
