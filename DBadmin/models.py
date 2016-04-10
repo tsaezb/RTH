@@ -202,6 +202,9 @@ class Postoperatorio(Evento):
 
 class Complicacion(Evento):
 
+    class Meta:
+        verbose_name_plural = "Complicaciones"
+
     op_tipo_complicacion = (('rech','Rechazo'),
                             ('vasc','Vascular'),
                             ('bili','Biliar'),
