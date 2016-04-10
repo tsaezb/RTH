@@ -55,6 +55,8 @@ class ComplicacionAdmin(admin.ModelAdmin):
 
 
 
+
+
 admin.site.register(Paciente, PacienteAdmin)
 admin.site.register(Enfermedad)
 admin.site.register(Habito)
@@ -64,3 +66,8 @@ admin.site.register(Pretrasplante, PretrasplanteAdmin)
 admin.site.register(AntecedentePretrasplante)
 admin.site.register(Postoperatorio, PostoperatorioAdmin)
 admin.site.register(Complicacion, ComplicacionAdmin)
+
+admin.site.register(Trasplante)
+admin.site.register(Rehospitalizacion)
+admin.site.register(Laboratorio)
+admin.site.register(Donante)
