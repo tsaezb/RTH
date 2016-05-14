@@ -32,8 +32,8 @@ def hospitales(request):
 
 @login_required
 def gruposSanguineos(request):
-    [{'id': sang[0], 'grupo': sang[1]} for sang in Paciente.op_grupo_sang]
-    return HttpResponse(data)
+    data = [{'id': sang[0], 'grupo': sang[1]} for sang in Paciente.op_grupo_sang]
+    return JsonResponse(data, safe=False)
 
 
 #    return HttpResponse(element)

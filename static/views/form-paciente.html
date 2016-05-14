@@ -1,24 +1,32 @@
 <div class="container">
 
-  <script>
-  $(document).ready(function(){
-    $.getJSON( "data/comunas.json", function( data ) {
-      var listitems = "";
-      $.each( data, function( key, val ) {
-        listitems += '<option value=' + key + '>' + val.comuna + '</option>';
+      <script>
+      $(document).ready(function(){
+        $.getJSON( "data/comunas.json", function( data ) {
+          var listitems = "";
+          $.each( data, function( key, val ) {
+            console.log(val);
+            listitems += '<option value=' + key + '>' + val.comuna + '</option>';
+          });
+          $("#selectcomuna").append(listitems);
+        });
+        $.getJSON( "data/hospitales.json", function( data ) {
+          var listitems = "";
+          $.each( data, function( key, val ) {
+            listitems += '<option value=' + key + '>' + val.hospital + '</option>';
+          });
+          $("#selecthospital").append(listitems);
+        });
+        $.getJSON( "data/grupos-sanguineos.json", function( data ) {
+          var listitems = "";
+          $.each( data, function( key, val ) {
+            console.log(val)
+            listitems += '<option value=' + key + '>' + val.grupo + '</option>';
+          });
+          $("#selectgruposanguineo").append(listitems);
+        });
       });
-      $("#selectcomuna").append(listitems);
-    });
-
-    $.getJSON( "data/hospitales.json", function( data ) {
-      var listitems = "";
-      $.each( data, function( key, val ) {
-        listitems += '<option value=' + key + '>' + val.hospital + '</option>';
-      });
-      $("#selecthospital").append(listitems);
-    });
-  });
-  </script>
+      </script>
 
   <div class="block-header">
       <h2>Formulario</h2>
@@ -107,37 +115,6 @@
         <input type="text" class="form-control" placeholder="Dirección">
       </div>
 
-<<<<<<< HEAD
-      <script>
-      $(document).ready(function(){
-        $.getJSON( "data/comunas.json", function( data ) {
-          var listitems = "";
-          $.each( data, function( key, val ) {
-            console.log(val);
-            listitems += '<option value=' + key + '>' + val.comuna + '</option>';
-          });
-          $("#selectcomuna").append(listitems);
-        });
-        $.getJSON( "data/hospitales.json", function( data ) {
-          var listitems = "";
-          $.each( data, function( key, val ) {
-            listitems += '<option value=' + key + '>' + val.hospital + '</option>';
-          });
-          $("#selecthospital").append(listitems);
-        });
-        $.getJSON( "data/grupos-sanguineos.json", function( data ) {
-          var listitems = "";
-          console.log(data)
-          $.each( data, function( key, val ) {
-            listitems += '<option value=' + key + '>' + val + '</option>';
-          });
-          $("#selectgruposanguineo").append(listitems);
-        });
-      });
-      </script>
-
-=======
->>>>>>> ed057c9e1d652c83465ef5d7e77361f93b155de8
       <div class="form-group fg-line">
         <label>Comuna</label>
           <div class="select">
@@ -150,12 +127,8 @@
       <div class="form-group fg-line">
         <label>Hospital</label>
           <div class="select">
-            <select chosen class="form-control" id="selecthospital">
-<<<<<<< HEAD
+            <select class="form-control" id="selecthospital">
               <option>Seleccionar...</option>
-=======
-              <option>Select an Option</option>
->>>>>>> ed057c9e1d652c83465ef5d7e77361f93b155de8
             </select>
         </div>
       </div>
@@ -177,6 +150,7 @@
           <div class="select">
             <select chosen class="form-control" id="selectgruposanguineo">
               <option>Seleccionar...</option>
+              <option>blabalbal</option>
             </select>
         </div>
       </div>
