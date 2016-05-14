@@ -56,6 +56,12 @@ class Hospital(models.Model):
     def autocomplete_search_fields():
         return ("nombre__iexact","nombre__icontains",)
 
+    def as_json(self):
+        return dict(
+            id = self.id,
+            hospital = self.nombre + ", " + self.servicio_salud
+        )
+
 
 class Paciente(models.Model):
     #datos personales

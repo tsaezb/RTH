@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Comuna
+from .models import Comuna, Hospital, Paciente
+from django.core import serializers
+import json
 
 # Create your views here.
 
@@ -21,8 +23,17 @@ def comunas(request):
     resultset = Comuna.objects.all()
     results = [ob.as_json() for ob in resultset]
     return JsonResponse(results, safe=False)
-    #return HttpResponse(json.dumps(results), content_type="application/json")
 
+@login_required
+def hospitales(request):
+    resultset = Hospital.objects.all()
+    results = [ob.as_json() for ob in resultset]
+    return JsonResponse(results, safe=False)
+
+@login_required
+def gruposSanguineos(request):
+    [{'id': sang[0], 'grupo': sang[1]} for sang in Paciente.op_grupo_sang]
+    return HttpResponse(data)
 
 
 #    return HttpResponse(element)

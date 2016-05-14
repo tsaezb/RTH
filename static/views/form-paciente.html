@@ -60,6 +60,21 @@
           });
           $("#selectcomuna").append(listitems);
         });
+        $.getJSON( "data/hospitales.json", function( data ) {
+          var listitems = "";
+          $.each( data, function( key, val ) {
+            listitems += '<option value=' + key + '>' + val.hospital + '</option>';
+          });
+          $("#selecthospital").append(listitems);
+        });
+        $.getJSON( "data/grupos-sanguineos.json", function( data ) {
+          var listitems = "";
+          console.log(data)
+          $.each( data, function( key, val ) {
+            listitems += '<option value=' + key + '>' + val + '</option>';
+          });
+          $("#selectgruposanguineo").append(listitems);
+        });
       });
       </script>
 
@@ -75,8 +90,8 @@
       <div class="form-group fg-line">
         <label>Hospital</label>
           <div class="select">
-            <select chosen class="form-control">
-              <option>Select an Option</option>
+            <select chosen class="form-control" id="selecthospital">
+              <option>Seleccionar...</option>
             </select>
         </div>
       </div>
@@ -85,7 +100,10 @@
         <label>Prevision</label>
           <div class="select">
             <select chosen class="form-control">
-              <option>Select an Option</option>
+              <option>Seleccionar...</option>
+              <option value="Fonasa">FONASA</option>
+              <option value="Dipreca">DIPRECA</option>
+              <option value="Isapre">Isapre</option>
             </select>
         </div>
       </div>
@@ -93,8 +111,8 @@
       <div class="form-group fg-line">
         <label>Grupo Sanguineo</label>
           <div class="select">
-            <select chosen class="form-control">
-              <option>Select an Option</option>
+            <select chosen class="form-control" id="selectgruposanguineo">
+              <option>Seleccionar...</option>
             </select>
         </div>
       </div>
