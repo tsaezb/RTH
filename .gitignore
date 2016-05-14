@@ -4,6 +4,7 @@ DBadmin/migrations
 *.py[cod]
 
 db.sqlite3
+.idea/
 
 # C extensions
 *.so
