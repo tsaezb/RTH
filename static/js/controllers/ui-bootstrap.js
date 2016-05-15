@@ -1,5 +1,13 @@
 materialAdmin
 
+
+.controller('SelectOptionCtrl', function($scope, $http) {
+    $http.get("data/comunas.json")
+    .then(function(response) {
+        $scope.comunas = response.data;
+    });
+})
+
     //====================================
     // ALERT
     //====================================
@@ -17,7 +25,7 @@ materialAdmin
         };
     })
 
-    
+
     //====================================
     // BUTTONS
     //====================================
@@ -34,7 +42,7 @@ materialAdmin
         };
     })
 
-    
+
     //====================================
     // CAROUSEL
     //====================================
@@ -82,14 +90,14 @@ materialAdmin
         ];
     })
 
-    
+
     //====================================
     // MODAL
     //====================================
     .controller('ModalDemoCtrl', function ($scope, $uibModal, $log) {
 
         $scope.modalContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales orci ante, sed ornare eros vestibulum ut. Ut accumsan vitae eros sit amet tristique. Nullam scelerisque nunc enim, non dignissim nibh faucibus ullamcorper. Fusce pulvinar libero vel ligula iaculis ullamcorper. Integer dapibus, mi ac tempor varius, purus nibh mattis erat, vitae porta nunc nisi non tellus. Vivamus mollis ante non massa egestas fringilla. Vestibulum egestas consectetur nunc at ultricies. Morbi quis consectetur nunc.';
-    
+
         //Create Modal
         function modalInstances(animation, size, backdrop, keyboard) {
             var modalInstance = $uibModal.open({
@@ -104,25 +112,25 @@ materialAdmin
                         return $scope.modalContent;
                     }
                 }
-            
+
             });
         }
-        
+
         //Custom Sizes
         $scope.open = function (size) {
             modalInstances(true, size, true, true)
         }
-        
+
         //Without Animation
         $scope.openWithoutAnimation = function() {
             modalInstances(false, '', true, true)
         }
-        
+
         //Prevent Outside Click
         $scope.openStatic = function () {
             modalInstances(true, '', 'static', true)
         };
-    
+
         //Disable Keyboard
         $scope.openKeyboard = function () {
             modalInstances(true, '', true, false)
@@ -145,7 +153,7 @@ materialAdmin
             $modalInstance.dismiss('cancel');
           };
     })
-    
+
 
     //====================================
     // PAGINATION
@@ -188,13 +196,13 @@ materialAdmin
 
             if (value < 25) {
                 type = 'success';
-            } 
+            }
             else if (value < 50) {
                   type = 'info';
-            } 
+            }
             else if (value < 75) {
                   type = 'warning';
-            } 
+            }
             else {
                   type = 'danger';
             }
@@ -219,7 +227,7 @@ materialAdmin
                 });
             }
         };
-    
+
         $scope.randomStacked();
     })
 
@@ -250,7 +258,7 @@ materialAdmin
 
     })
 
-    
+
     //====================================
     // TOOLTIPS
     //====================================
@@ -259,7 +267,7 @@ materialAdmin
           $scope.htmlTooltip = $sce.trustAsHtml('I\'ve been made <b>bold</b>!');
     })
 
-    
+
     //====================================
     // DATE PICKER
     //====================================
@@ -289,7 +297,7 @@ materialAdmin
 
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
         $scope.format = $scope.formats[0];
-    })  
+    })
 
 
 
@@ -300,58 +308,58 @@ materialAdmin
 
         $scope.selected = undefined;
         $scope.states = [
-            'Alabama', 
-            'Alaska', 
-            'Arizona', 
-            'Arkansas', 
-            'California', 
-            'Colorado', 
-            'Connecticut', 
-            'Delaware', 
-            'Florida', 
-            'Georgia', 
-            'Hawaii', 
-            'Idaho', 
-            'Illinois', 
-            'Indiana', 
-            'Iowa', 
-            'Kansas', 
-            'Kentucky',                       
-            'Louisiana', 
-            'Maine', 
+            'Alabama',
+            'Alaska',
+            'Arizona',
+            'Arkansas',
+            'California',
+            'Colorado',
+            'Connecticut',
+            'Delaware',
+            'Florida',
+            'Georgia',
+            'Hawaii',
+            'Idaho',
+            'Illinois',
+            'Indiana',
+            'Iowa',
+            'Kansas',
+            'Kentucky',
+            'Louisiana',
+            'Maine',
             'Maryland',
             'Massachusetts',
             'Michigan',
-            'Minnesota', 
+            'Minnesota',
             'Mississippi',
             'Missouri',
-            'Montana', 
-            'Nebraska', 
+            'Montana',
+            'Nebraska',
             'Nevada',
             'New Hampshire',
             'New Jersey',
-            'New Mexico', 
-            'New York', 
-            'North Dakota', 
+            'New Mexico',
+            'New York',
+            'North Dakota',
             'North Carolina',
-            'Ohio', 
+            'Ohio',
             'Oklahoma',
-            'Oregon', 
+            'Oregon',
             'Pennsylvania',
-            'Rhode Island', 
+            'Rhode Island',
             'South Carolina',
             'South Dakota',
-            'Tennessee', 
-            'Texas', 
+            'Tennessee',
+            'Texas',
             'Utah',
             'Vermont',
-            'Virginia', 
+            'Virginia',
             'Washington',
             'West Virginia',
             'Wisconsin',
             'Wyoming'
         ];
-    
+
         // Any function returning a promise object can be used to load values asynchronously
         $scope.getLocation = function(val) {
             return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
@@ -365,4 +373,4 @@ materialAdmin
                 });
             });
         }
-    }) 
+    })

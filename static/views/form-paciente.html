@@ -87,10 +87,10 @@
         <input type="text" class="form-control" placeholder="Introducir dirección...">
       </div>
 
-      <div class="form-group fg-line">
-        <label>Comuna</label>
+      <div class="form-group fg-line" data-ng-controller="SelectOptionCtrl">
+        <label>{{comunas}}</label>
           <div class="select">
-            <select chosen class="form-control" data-placeholder="Seleccionar comuna">
+            <select  chosen class="form-control" data-placeholder="Seleccionar comuna" ng-model="comuna" ng-options="c as c.comuna for c in comunas track by c.id">
             </select>
         </div>
       </div>
