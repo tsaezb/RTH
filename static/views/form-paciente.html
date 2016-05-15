@@ -1,25 +1,5 @@
 <div class="container">
 
-  <script>
-  $(document).ready(function(){
-    $.getJSON( "data/comunas.json", function( data ) {
-      var listitems = "";
-      $.each( data, function( key, val ) {
-        listitems += '<option value=' + key + '>' + val.comuna + '</option>';
-      });
-      $("#selectcomuna").append(listitems);
-    });
-
-    $.getJSON( "data/hospitales.json", function( data ) {
-      var listitems = "";
-      $.each( data, function( key, val ) {
-        listitems += '<option value=' + key + '>' + val.hospital + '</option>';
-      });
-      $("#selecthospital").append(listitems);
-    });
-  });
-  </script>
-
   <div class="block-header">
       <h2>Formulario</h2>
 
@@ -66,7 +46,7 @@
 
       <div class="form-group fg-line">
         <label>Nombre</label>
-        <input type="text" class="form-control" placeholder="Nombre">
+        <input type="text" class="form-control" placeholder="Escribir Nombre Completo">
       </div>
 
       <div class="form-group fg-line">
@@ -97,21 +77,20 @@
         <div class="date-picker input-group" ng-class="{ 'is-opened': opened == true }">
             <span class="input-group-addon"><i class="zmdi zmdi-calendar ma-icon"></i></span>
             <div class="fg-line" ng-class="{ 'fg-toggled': opened == true }">
-                <input ng-click="open($event, 'opened')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="dtPopup" is-open="opened" min-date="minDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Select Date" />
+                <input ng-click="open($event, 'opened')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="dtPopup" is-open="opened" min-date="minDate" datepicker-options="dateOptions" ng-required="true" current-text="Hoy" clear-text="Limpiar" close-text="Cerrar" placeholder="Seleccionar fecha" />
             </div>
         </div>
       </div>
 
       <div class="form-group fg-line">
         <label>Dirección</label>
-        <input type="text" class="form-control" placeholder="Dirección">
+        <input type="text" class="form-control" placeholder="Introducir dirección...">
       </div>
 
       <div class="form-group fg-line">
         <label>Comuna</label>
           <div class="select">
-            <select class="form-control" id="selectcomuna">
-              <option>Seleccionar...</option>
+            <select chosen class="form-control" data-placeholder="Seleccionar comuna">
             </select>
         </div>
       </div>
@@ -119,17 +98,15 @@
       <div class="form-group fg-line">
         <label>Hospital</label>
           <div class="select">
-            <select chosen class="form-control" id="selecthospital">
-              <option>Select an Option</option>
+            <select chosen class="form-control" data-placeholder="Seleccionar hospital">
             </select>
         </div>
       </div>
 
       <div class="form-group fg-line">
-        <label>Prevision</label>
+        <label>Previsión</label>
           <div class="select">
-            <select chosen class="form-control">
-              <option>Select an Option</option>
+            <select chosen class="form-control" data-placeholder="Seleccionar previsión">
             </select>
         </div>
       </div>
@@ -137,30 +114,25 @@
       <div class="form-group fg-line">
         <label>Grupo Sanguineo</label>
           <div class="select">
-            <select chosen class="form-control">
-              <option>Select an Option</option>
+            <select chosen class="form-control" data-placeholder="Seleccionar grupo sanguineo">
             </select>
         </div>
       </div>
 
       <div class="form-group fg-line">
           <label>Enfermedades</label>
-          <select chosen multiple data-placeholder="Select a country..." class="w-100">
-              <option value="United States">United States</option>
+          <select chosen multiple data-placeholder="Indicar enfermedades" class="w-100">
           </select>
       </div>
 
       <div class="form-group fg-line">
         <label>Antecedentes Quirurjicos</label>
-
         <br/><br/>
-
         <label class="radio radio-inline m-r-20">
           <input type="radio" name="inlineRadioOptions" value="True">
           <i class="input-helper"></i>
           Si
         </label>
-
         <label class="radio radio-inline m-r-20">
           <input type="radio" name="inlineRadioOptions" value="False">
           <i class="input-helper"></i>
@@ -170,8 +142,7 @@
 
       <div class="form-group fg-line">
           <label>Habitos</label>
-          <select  chosen multiple data-placeholder="Select a country..." class="w-100">
-              <option value="United States">United States</option>
+          <select  chosen multiple data-placeholder="Indicar habitos" class="w-100">
           </select>
       </div>
 
