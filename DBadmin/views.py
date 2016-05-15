@@ -36,6 +36,11 @@ def gruposSanguineos(request):
     return JsonResponse(data, safe=False)
 
 @login_required
+def previsiones(request):
+    data = [{'id': prev[0], 'prevision': prev[1]} for prev in Paciente.op_prevision]
+    return JsonResponse(data, safe=False)
+
+@login_required
 def habitos(request):
     resultset = Habito.objects.all()
     results = [ob.as_json() for ob in resultset]

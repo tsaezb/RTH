@@ -88,7 +88,7 @@
       </div>
 
       <div class="form-group fg-line" data-ng-controller="ComunasOptionCtrl">
-        <label>Comunas</label>
+        <label>Comuna</label>
           <div class="select">
             <select  chosen class="form-control" data-placeholder="Seleccionar comuna" ng-model="comuna" ng-options="c as c.comuna for c in comunas track by c.id">
             </select>
@@ -96,37 +96,37 @@
       </div>
 
       <div class="form-group fg-line" data-ng-controller="HospitalesOptionCtrl">
-        <label>Hospital</label>
+        <label>Hospital de origen</label>
           <div class="select">
-            <select chosen class="form-control" data-placeholder="Seleccionar hospital">
+            <select chosen class="form-control" data-placeholder="Seleccionar hospital" ng-model="hosp" ng-options="h as h.hospital for h in hospitales track by h.id">
             </select>
         </div>
       </div>
 
-      <div class="form-group fg-line">
+      <div class="form-group fg-line" data-ng-controller="PrevOptionCtrl">
         <label>Previsión</label>
           <div class="select">
-            <select chosen class="form-control" data-placeholder="Seleccionar previsión">
+            <select chosen class="form-control" data-placeholder="Seleccionar previsión" ng-model="prev" ng-options="p as p.prevision for p in previsiones track by p.id">
             </select>
         </div>
       </div>
 
-      <div class="form-group fg-line">
-        <label>Grupo Sanguineo</label>
+      <div class="form-group fg-line" data-ng-controller="GrupoSangOptionCtrl">
+        <label>Grupo Sanguíneo</label>
           <div class="select">
-            <select chosen class="form-control" data-placeholder="Seleccionar grupo sanguineo">
+            <select chosen class="form-control" data-placeholder="Seleccionar grupo sanguineo" ng-model="g_sang" ng-options="gs as gs.grupo for gs in grupos track by gs.id">
             </select>
         </div>
       </div>
 
-      <div class="form-group fg-line">
-          <label>Enfermedades</label>
-          <select chosen multiple data-placeholder="Indicar enfermedades" class="w-100">
+      <div class="form-group fg-line" data-ng-controller="EnfermedadesOptionCtrl">
+          <label>Antecedentes mórbidos</label>
+          <select chosen multiple data-placeholder="Indicar Antecedentes" class="w-100" ng-model="enf" ng-options="e as e.enfermedad for e in enfermedades track by e.id">
           </select>
       </div>
 
       <div class="form-group fg-line">
-        <label>Antecedentes Quirurjicos</label>
+        <label>Antecedentes Quirúrgicos</label>
         <br/><br/>
         <label class="radio radio-inline m-r-20">
           <input type="radio" name="inlineRadioOptions" value="True">
@@ -140,9 +140,9 @@
         </label>
       </div>
 
-      <div class="form-group fg-line">
+      <div class="form-group fg-line" data-ng-controller="HabitosOptionCtrl">
           <label>Habitos</label>
-          <select  chosen multiple data-placeholder="Indicar habitos" class="w-100">
+          <select chosen multiple data-placeholder="Indicar habitos" class="w-100" ng-model="hab" ng-options="h as h.habito for h in habitos track by h.id">
           </select>
       </div>
 

@@ -8,5 +8,6 @@ urlpatterns = patterns('',
     url(r'^grupos-sanguineos.json', views.gruposSanguineos, name='gruposSanguineos'),
     url(r'^habitos.json', views.habitos, name='habitos'),
     url(r'^enfermedades.json', views.enfermedades, name='enfermedades'),
+    url(r'^previsiones.json', views.previsiones, name='previsiones'),
 #    url(r'^busqueda-persona/$', views.searchByPerson, name='searchByPerson'),z
 )
