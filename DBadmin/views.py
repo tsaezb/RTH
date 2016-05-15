@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Comuna, Hospital, Paciente
+from .models import Comuna, Hospital, Paciente, Habito, Enfermedad
 from django.core import serializers
 import json
 
@@ -35,6 +35,17 @@ def gruposSanguineos(request):
     data = [{'id': sang[0], 'grupo': sang[1]} for sang in Paciente.op_grupo_sang]
     return JsonResponse(data, safe=False)
 
+@login_required
+def habitos(request):
+    resultset = Habito.objects.all()
+    results = [ob.as_json() for ob in resultset]
+    return JsonResponse(results, safe=False)
+
+@login_required
+def enfermedades(request):
+    resultset = Enfermedad.objects.all()
+    results = [ob.as_json() for ob in resultset]
+    return JsonResponse(results, safe=False)
 
 #    return HttpResponse(element)
 #    return render(request, '../templates/index.html')
