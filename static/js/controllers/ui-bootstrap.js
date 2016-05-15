@@ -1,46 +1,52 @@
 materialAdmin
 
 
-.controller('ComunasOptionCtrl', function($scope, $http) {
+.controller('PatientFormCtrl', function($scope, $http) {
   $http.get("data/comunas.json")
   .then(function(response) {
     $scope.comunas = response.data;
   });
-})
 
-.controller('HospitalesOptionCtrl', function($scope, $http) {
   $http.get("data/hospitales.json")
   .then(function(response) {
     $scope.hospitales = response.data;
   });
-})
 
-.controller('GrupoSangOptionCtrl', function($scope, $http) {
   $http.get("data/grupos-sanguineos.json")
   .then(function(response) {
     $scope.grupos = response.data;
   });
-})
 
-.controller('PrevOptionCtrl', function($scope, $http) {
   $http.get("data/previsiones.json")
   .then(function(response) {
     $scope.previsiones = response.data;
   });
-})
 
-.controller('HabitosOptionCtrl', function($scope, $http) {
   $http.get("data/habitos.json")
   .then(function(response) {
     $scope.habitos = response.data;
   });
-})
-
-.controller('EnfermedadesOptionCtrl', function($scope, $http) {
+  
   $http.get("data/enfermedades.json")
   .then(function(response) {
     $scope.enfermedades = response.data;
   });
+
+  $scope.savePaciente = function () {
+    $scope.messages = [];
+
+    var nombre_regex = new RegExp("^[^0-9]*$")
+
+    if($scope.form_nombre == null){
+
+    }
+    if (!nombre_regex.test($scope.form_nombre)) {
+
+    }
+
+
+
+  };
 })
 //====================================
 // ALERT

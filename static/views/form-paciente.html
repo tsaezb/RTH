@@ -1,39 +1,39 @@
 <div class="container">
 
   <div class="block-header">
-      <h2>Formulario</h2>
+    <h2>Formulario</h2>
 
-      <ul class="actions">
-        <li class="dropdown" uib-dropdown>
-            <a href="" uib-dropdown-toggle>
-                <i class="zmdi zmdi-more-vert"></i>
-            </a>
+    <ul class="actions">
+      <li class="dropdown" uib-dropdown>
+        <a href="" uib-dropdown-toggle>
+          <i class="zmdi zmdi-more-vert"></i>
+        </a>
 
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                    <a data-ui-sref="form.pretrasplante">Pretrasplante</a>
-                </li>
-                <li>
-                    <a data-ui-sref="form.trasplante">Trasplante</a>
-                </li>
-                <li>
-                    <a data-ui-sref="form.donante">Donante</a>
-                </li>
-                <li>
-                    <a data-ui-sref="form.postoperatorio">Postoperatorio</a>
-                </li>
-                <li>
-                    <a data-ui-sref="form.complicacion">Complicación</a>
-                </li>
-                <li>
-                    <a data-ui-sref="form.rehospitalizacion">Rehospitalización</a>
-                </li>
-                <li>
-                    <a data-ui-sref="form.laboratorio">Laboratorio</a>
-                </li>
-            </ul>
-        </li>
-      </ul>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+            <a data-ui-sref="form.pretrasplante">Pretrasplante</a>
+          </li>
+          <li>
+            <a data-ui-sref="form.trasplante">Trasplante</a>
+          </li>
+          <li>
+            <a data-ui-sref="form.donante">Donante</a>
+          </li>
+          <li>
+            <a data-ui-sref="form.postoperatorio">Postoperatorio</a>
+          </li>
+          <li>
+            <a data-ui-sref="form.complicacion">Complicación</a>
+          </li>
+          <li>
+            <a data-ui-sref="form.rehospitalizacion">Rehospitalización</a>
+          </li>
+          <li>
+            <a data-ui-sref="form.laboratorio">Laboratorio</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
 
   </div>
 
@@ -43,111 +43,115 @@
     </div>
 
     <div class="card-body card-padding">
+      <form role="form" data-ng-controller="PatientFormCtrl">
+        <div class="form-group fg-line">
+          <label>Nombre</label>
+          <input type="text" class="form-control" ng-model="form_nombre" placeholder="Escribir Nombre Completo">
+        </div>
 
-      <div class="form-group fg-line">
-        <label>Nombre</label>
-        <input type="text" class="form-control" placeholder="Escribir Nombre Completo">
-      </div>
+        <div class="form-group fg-line">
+          <label>Rut</label>
+          <input type="text" class="form-control" ng-model="form_rut" placeholder="ej: 18021635-0">
+        </div>
 
-      <div class="form-group fg-line">
-        <label>Rut</label>
-        <input type="text" class="form-control" placeholder="ej: 18021635-0">
-      </div>
+        <div class="form-group fg-line">
+          <label>Sexo</label>
 
-      <div class="form-group fg-line">
-        <label>Sexo</label>
+          <br/><br/>
 
-        <br/><br/>
+          <label class="radio radio-inline m-r-20">
+            <input type="radio" ng-model="form_sexo" name="inlineRadioOptions" value="f">
+            <i class="input-helper"></i>
+            Femenino
+          </label>
 
-        <label class="radio radio-inline m-r-20">
-          <input type="radio" name="inlineRadioOptions" value="f">
-          <i class="input-helper"></i>
-          Femenino
-        </label>
+          <label class="radio radio-inline m-r-20">
+            <input type="radio" ng-model="form_sexo" name="inlineRadioOptions" value="m">
+            <i class="input-helper"></i>
+            Masculino
+          </label>
+        </div>
 
-        <label class="radio radio-inline m-r-20">
-          <input type="radio" name="inlineRadioOptions" value="m">
-          <i class="input-helper"></i>
-          Masculino
-        </label>
-      </div>
-
-      <div class="form-group fg-line" data-ng-controller="DatepickerDemoCtrl">
-        <label>Fecha de Nacimiento</label>
-        <div class="date-picker input-group" ng-class="{ 'is-opened': opened == true }">
+        <div class="form-group fg-line">
+          <label>Fecha de Nacimiento</label>
+          <div class="date-picker input-group" ng-class="{ 'is-opened': opened == true }" data-ng-controller="DatepickerDemoCtrl">
             <span class="input-group-addon"><i class="zmdi zmdi-calendar ma-icon"></i></span>
             <div class="fg-line" ng-class="{ 'fg-toggled': opened == true }">
-                <input ng-click="open($event, 'opened')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="dtPopup" is-open="opened" min-date="minDate" datepicker-options="dateOptions" ng-required="true" current-text="Hoy" clear-text="Limpiar" close-text="Cerrar" placeholder="Seleccionar fecha" />
+              <input ng-click="open($event, 'opened')" type="text" class="form-control" uib-datepicker-popup="{{format}}" show-weeks="false" ng-model="form_fecha" is-open="opened" min-date="minDate" datepicker-options="dateOptions" current-text="Hoy" clear-text="Limpiar" close-text="Cerrar" placeholder="Seleccionar fecha" />
             </div>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group fg-line">
-        <label>Dirección</label>
-        <input type="text" class="form-control" placeholder="Introducir dirección...">
-      </div>
+        <div class="form-group fg-line">
+          <label>Dirección</label>
+          <input type="text" class="form-control" ng-model="form_direccion" placeholder="Introducir dirección...">
+        </div>
 
-      <div class="form-group fg-line" data-ng-controller="ComunasOptionCtrl">
-        <label>Comuna</label>
+        <div class="form-group fg-line">
+          <label>Comuna</label>
           <div class="select">
-            <select  chosen class="form-control" data-placeholder="Seleccionar comuna" ng-model="comuna" ng-options="c as c.comuna for c in comunas track by c.id">
+            <select  chosen class="form-control" data-placeholder="Seleccionar comuna" ng-model="form_comuna" ng-options="c as c.comuna for c in comunas track by c.id">
             </select>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group fg-line" data-ng-controller="HospitalesOptionCtrl">
-        <label>Hospital de origen</label>
+        <div class="form-group fg-line">
+          <label>Hospital de origen</label>
           <div class="select">
-            <select chosen class="form-control" data-placeholder="Seleccionar hospital" ng-model="hosp" ng-options="h as h.hospital for h in hospitales track by h.id">
+            <select chosen class="form-control" data-placeholder="Seleccionar hospital" ng-model="form_hospital" ng-options="h as h.hospital for h in hospitales track by h.id">
             </select>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group fg-line" data-ng-controller="PrevOptionCtrl">
-        <label>Previsión</label>
+        <div class="form-group fg-line">
+          <label>Previsión</label>
           <div class="select">
-            <select chosen class="form-control" data-placeholder="Seleccionar previsión" ng-model="prev" ng-options="p as p.prevision for p in previsiones track by p.id">
+            <select chosen class="form-control" data-placeholder="Seleccionar previsión" ng-model="form_prevision" ng-options="p as p.prevision for p in previsiones track by p.id">
             </select>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group fg-line" data-ng-controller="GrupoSangOptionCtrl">
-        <label>Grupo Sanguíneo</label>
+        <div class="form-group fg-line">
+          <label>Grupo Sanguíneo</label>
           <div class="select">
-            <select chosen class="form-control" data-placeholder="Seleccionar grupo sanguineo" ng-model="g_sang" ng-options="gs as gs.grupo for gs in grupos track by gs.id">
+            <select chosen class="form-control" data-placeholder="Seleccionar grupo sanguineo" ng-model="form_sangre" ng-options="gs as gs.grupo for gs in grupos track by gs.id">
             </select>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group fg-line" data-ng-controller="EnfermedadesOptionCtrl">
+        <div class="form-group fg-line">
           <label>Antecedentes mórbidos</label>
-          <select chosen multiple data-placeholder="Indicar Antecedentes" class="w-100" ng-model="enf" ng-options="e as e.enfermedad for e in enfermedades track by e.id">
+          <select chosen multiple data-placeholder="Indicar Antecedentes" class="w-100" ng-model="form_enfermedades" ng-options="e as e.enfermedad for e in enfermedades track by e.id">
           </select>
-      </div>
+        </div>
 
-      <div class="form-group fg-line">
-        <label>Antecedentes Quirúrgicos</label>
-        <br/><br/>
-        <label class="radio radio-inline m-r-20">
-          <input type="radio" name="inlineRadioOptions" value="True">
-          <i class="input-helper"></i>
-          Si
-        </label>
-        <label class="radio radio-inline m-r-20">
-          <input type="radio" name="inlineRadioOptions" value="False">
-          <i class="input-helper"></i>
-          No
-        </label>
-      </div>
+        <div class="form-group fg-line">
+          <label>Antecedentes Quirúrgicos</label>
+          <br/><br/>
+          <label class="radio radio-inline m-r-20">
+            <input type="radio" ng-model="form_antecedentes" name="inlineRadioOptions" value="True">
+            <i class="input-helper"></i>
+            Si
+          </label>
+          <label class="radio radio-inline m-r-20">
+            <input type="radio" ng-model="form_antecedentes" name="inlineRadioOptions" value="False">
+            <i class="input-helper"></i>
+            No
+          </label>
+        </div>
 
-      <div class="form-group fg-line" data-ng-controller="HabitosOptionCtrl">
+        <div class="form-group fg-line">
           <label>Habitos</label>
-          <select chosen multiple data-placeholder="Indicar habitos" class="w-100" ng-model="hab" ng-options="h as h.habito for h in habitos track by h.id">
+          <select chosen multiple data-placeholder="Indicar habitos" class="w-100" ng-model="form_habitos" ng-options="h as h.habito for h in habitos track by h.id">
           </select>
-      </div>
+        </div>
+        <div class="form-group fg-line">
+          <button type="submit" ng-click="savePaciente()" class="btn btn-primary btn-sm m-t-10">Guardar</button>
+          <button type="button"  class="btn btn-danger btn-sm m-t-10">Limpiar</button>
 
+        </div>
 
-
+      </form>
     </div>
 
   </div>
