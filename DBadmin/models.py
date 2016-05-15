@@ -31,6 +31,12 @@ class Enfermedad(models.Model):
     def autocomplete_search_fields():
         return ("nombre__iexact","nombre__icontains",)
 
+    def as_json(self):
+        return dict(
+            id = self.id,
+            enfermedad = self.nombre
+        )
+
 
 class Habito(models.Model):
     nombre = models.CharField(max_length=50)
@@ -40,6 +46,12 @@ class Habito(models.Model):
     @staticmethod
     def autocomplete_search_fields():
         return ("nombre__iexact","nombre__icontains",)
+
+    def as_json(self):
+        return dict(
+            id = self.id,
+            habito = self.nombre
+        )
 
 
 class Hospital(models.Model):
@@ -55,6 +67,12 @@ class Hospital(models.Model):
     @staticmethod
     def autocomplete_search_fields():
         return ("nombre__iexact","nombre__icontains",)
+
+    def as_json(self):
+        return dict(
+            id = self.id,
+            hospital = self.nombre + ", " + self.servicio_salud
+        )
 
 
 class Paciente(models.Model):
