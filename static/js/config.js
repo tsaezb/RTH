@@ -130,6 +130,31 @@ materialAdmin
                 templateUrl: 'views/data-table.html'
             })
 
+            //------------------------------
+            // SEARCH
+            //------------------------------
+            .state ('search', {
+                url: '/search',
+                templateUrl: 'views/common.html'
+            })
+
+            .state ('search.paciente', {
+                url: '/paciente',
+                templateUrl: 'views/search-paciente.html',
+                resolve: {
+                    loadPlugin: function($ocLazyLoad) {
+                        return $ocLazyLoad.load ([
+                            {
+                                name: 'vendors',
+                                files: [
+                                    'vendors/bower_components/autosize/dist/autosize.min.js'
+                                ]
+                            }
+                        ])
+                    }
+                }
+            })
+
 
             //------------------------------
             // FORMS

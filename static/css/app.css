@@ -9140,6 +9140,7 @@ body:not(.sw-toggled) #sidebar {
   }
 }
 .listview .lv-title {
+  font-size: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -9237,7 +9238,7 @@ body:not(.sw-toggled) #sidebar {
   animation-fill-mode: both;
 }
 .lvh-search:before {
-  content: "\f1c3";
+  content: "\f2ee";
   font-family: 'Material-Design-Iconic-Font';
   position: absolute;
   left: 24px;

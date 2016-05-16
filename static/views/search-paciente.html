@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="block-header">
+        <h2>Consulta de Pacientes</h2>
+    </div>
+
+    <div class="card">
+        <div class="listview lv-bordered lv-lg">
+            <div class="card-header ch-alt text-center">
+                <li class="search">
+                    <div class="lvh-search">
+                    <input type="text" placeholder="Buscar por RUT o por Nombre..." class="lvhs-input">
+                    <button class="btn bgm-blue btn-float"><i class="zmdi zmdi-search"></i></button>
+                    </div>
+                </li>
+            </div>
+            <div class="card-header ch-alt">
+                <h2>Resultados</h2>
+                <div class="dropdown" uib-dropdown>
+                    <button class="btn btn-info btn-primary">Ordenar por <i class="zmdi zmdi-menu"></i></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="ng-scope"><a href=""></a>Nombre</li>
+                        <li class="ng-scope"><a href=""></a>RUT</li>
+                        <li class="ng-scope"><a href=""></a>Fecha 1er Transplante</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lv-body">
+                <div class="lv-item media">
+                    <a href="#/paciente/1"><div class="media-body">
+                        <div class="lv-title">Juan de las Nieves Martínez</div>
+                        <ul class="lv-attrs">
+                            <li>Rut: 18015666-6</li>
+                            <li class="primary">Fecha 1er Transplante: 03.11.2009</li>
+                            <li class="danger">Vivo: No</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lv-item media">
+                    <a href="#/paciente/2"><div class="media-body">
+                        <div class="lv-title">Tatiana Merino Pedacito</div>
+                        <ul class="lv-attrs">
+                            <li>Rut: 13958044-k</li>
+                            <li class="primary">Fecha 1er Transplante: 24.05.2014</li>
+                            <li class="primary">Fecha 2do Transplante: 14.06.2014</li>
+                            <li class="info">Vivo: Si</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="lv-item media">
+                    <a href="#/paciente/3"><div class="media-body">
+                        <div class="lv-title">Aquiles Baeza Navidad</div>
+                        <ul class="lv-attrs">
+                            <li>Rut: 9251639-8</li>
+                            <li class="danger">Fecha 1er Transplante: No Operado</li>
+                            <li class="info">Vivo: Si</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="lv-pagination" data-ng-controller="PaginationDemoCtrl">
+            <uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+        </div>
+    </div>
+
+</div>
