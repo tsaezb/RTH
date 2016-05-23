@@ -26,27 +26,72 @@ materialAdmin
   .then(function(response) {
     $scope.habitos = response.data;
   });
-  
+
   $http.get("data/enfermedades.json")
   .then(function(response) {
     $scope.enfermedades = response.data;
   });
 
-  $scope.savePaciente = function () {
-    $scope.messages = [];
+  function validarRut( data ){
 
+    var rut = data.split("-");
+
+
+  }
+
+  $scope.savePaciente = function () {
+
+    //validacion de nombre
     var nombre_regex = new RegExp("^[^0-9]*$")
 
-    if($scope.form_nombre == null){
+    if($scope.form_nombre == null || !nombre_regex.test($scope.form_nombre)){
 
     }
-    if (!nombre_regex.test($scope.form_nombre)) {
+
+    //vaildacion de RUT
+    var rut_regex = new RegExp("^[0-9]{1,8}-[0-9kK]$")
+    var validateRut = function (str){
+      var split = str.split("-");
+      var elRut = split[0];
+      var factor = 2;
+      var suma = 0;
+      var dv;
+      for(i=(elRut.length-1); i>=0; i--){
+        factor = factor > 7 ? 2 : factor;
+        suma += parseInt(elRut[i])*parseInt(factor++);
+      }
+      dv = 11 -(suma % 11);
+      if(dv == 11){
+        dv = 0;
+      }else if (dv == 10){
+        dv = "k";
+      }
+
+      if(dv == split[1].toLowerCase()){
+        console.log("Rut valido")
+        return true;
+      }else{
+        console.log("rut invalido")
+        return false;
+      }
+    }
+
+
+
+    if (!rut_regex.test($scope.form_rut)){
+      console.log("rut no cumple regex")
+    }
+    else if (!validateRut($scope.form_rut)){
 
     }
+
+
 
 
 
   };
+
+
 })
 //====================================
 // ALERT
