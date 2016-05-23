@@ -32,13 +32,6 @@ materialAdmin
     $scope.enfermedades = response.data;
   });
 
-  function validarRut( data ){
-
-    var rut = data.split("-");
-
-
-  }
-
   $scope.savePaciente = function () {
 
     //validacion de nombre
