@@ -43,6 +43,7 @@ materialAdmin
 
     //vaildacion de RUT
     var rut_regex = new RegExp("^[0-9]{1,8}-[0-9kK]$")
+
     var validateRut = function (str){
       var split = str.split("-");
       var elRut = split[0];
@@ -69,19 +70,23 @@ materialAdmin
       }
     }
 
-
-
     if (!rut_regex.test($scope.form_rut)){
-      console.log("rut no cumple regex")
+
     }
     else if (!validateRut($scope.form_rut)){
 
     }
 
+    //validacion de sexo
+    if($scope.form_sexo == null){
 
+    }
 
+    //validacion de fecha
+    var fecha_regex = new RegExp("^[0-9]{2}.[0-9]{2}.[0-9]{4}$")
+    if(fecha_regex.test($scope.form_fecha)){
 
-
+    }
   };
 
 
