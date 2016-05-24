@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^habitos.json', views.habitos, name='habitos'),
     url(r'^enfermedades.json', views.enfermedades, name='enfermedades'),
     url(r'^previsiones.json', views.previsiones, name='previsiones'),
+    url(r'^lookup/pacientes.json', views.pacientesLookup, name="pacientesLookup"),
 #    url(r'^busqueda-persona/$', views.searchByPerson, name='searchByPerson'),z
 )

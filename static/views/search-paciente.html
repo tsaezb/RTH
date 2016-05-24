@@ -9,20 +9,20 @@
                 <li class="search">
                     <div class="lvh-search">
                     <input type="text" placeholder="Buscar por RUT o por Nombre..." class="lvhs-input">
-                    <button class="btn bgm-blue btn-float"><i class="zmdi zmdi-search"></i></button>
+                    <button class="btn bgm-blue btn-float" style="bottom=0px;"><i class="zmdi zmdi-search"></i></button>
                     </div>
                 </li>
             </div>
             <div class="card-header ch-alt">
-                <h2>Resultados</h2>
-                <div class="dropdown" uib-dropdown>
-                    <button class="btn btn-info btn-primary">Ordenar por <i class="zmdi zmdi-menu"></i></button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li class="ng-scope"><a href=""></a>Nombre</li>
-                        <li class="ng-scope"><a href=""></a>RUT</li>
-                        <li class="ng-scope"><a href=""></a>Fecha 1er Transplante</li>
+                <div class="dropdown pull-right" uib-dropdown="">
+                    <button class="dropdown-toggle btn btn-success" uib-dropdown-toggle="">Ordenar por <i class="zmdi zmdi-menu"></i></button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li class="ng-scope"><a href="">Nombre</a></li>
+                        <li class="ng-scope"><a href="">RUT</a></li>
+                        <li class="ng-scope"><a href="">Fecha 1er Transplante</a></li>
                     </ul>
                 </div>
+                <h2>Resultados</h2>
             </div>
             <div class="lv-body">
                 <div class="lv-item media">
@@ -42,19 +42,20 @@
                             <li>Rut: 13958044-k</li>
                             <li class="primary">Fecha 1er Transplante: 24.05.2014</li>
                             <li class="primary">Fecha 2do Transplante: 14.06.2014</li>
-                            <li class="info">Vivo: Si</li>
+                            <li class="success">Vivo: Si</li>
                         </ul>
                     </div>
                 </div>
                 <div class="lv-item media">
                     <a href="#/paciente/3"><div class="media-body">
-                        <div class="lv-title">Aquiles Baeza Navidad</div>
+                    <div class="lv-title">Aquiles Baeza Navidad</div>
                         <ul class="lv-attrs">
                             <li>Rut: 9251639-8</li>
                             <li class="danger">Fecha 1er Transplante: No Operado</li>
-                            <li class="info">Vivo: Si</li>
+                            <li class="success">Vivo: Si</li>
                         </ul>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>
