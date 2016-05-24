@@ -110,6 +110,10 @@ class Paciente(models.Model):
     antecedentes_quirurgicos = models.NullBooleanField()
     habitos = models.ManyToManyField(Habito)
 
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("nombre__iexact","nombre__icontains","rut__iexact","rut__icontains",)
+
     def __str__(self):
         return self.nombre + ", " + self.rut
 

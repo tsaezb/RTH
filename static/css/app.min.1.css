@@ -11190,6 +11190,7 @@ body:not(.sw-toggled) #sidebar {
 }
 
 .listview .lv-title {
+  font-size: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -11218,7 +11219,7 @@ body:not(.sw-toggled) #sidebar {
   margin-right: 2px;
 }
 
-.listview .lv-attrs > li:not(.info):not(.primary):not(.warning):not(.danger) {
+.listview .lv-attrs > li:not(.info):not(.success):not(.primary):not(.warning):not(.danger) {
   border: 1px solid #dedede;
   background: #ffffff;
   color: #5e5e5e;
@@ -11227,6 +11228,12 @@ body:not(.sw-toggled) #sidebar {
 .listview .lv-attrs > li.info {
   border: 1px solid #00bcd4;
   background: #00bcd4;
+  color: #ffffff;
+}
+
+.listview .lv-attrs > li.success {
+  border: 1px solid #4caf50;
+  background: #4caf50;
   color: #ffffff;
 }
 
@@ -11305,7 +11312,7 @@ body:not(.sw-toggled) #sidebar {
 }
 
 .lvh-search:before {
-  content: "\f1c3";
+  content: "\f2ee";
   font-family: 'Material-Design-Iconic-Font';
   position: absolute;
   left: 24px;
@@ -11725,7 +11732,7 @@ a.lv-footer:hover {
 
 .card-header .btn-float {
   right: 25px;
-  bottom: -23px;
+  bottom: 0px;
   z-index: 1;
 }
 
